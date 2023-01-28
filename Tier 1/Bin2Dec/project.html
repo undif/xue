@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div>请输入二进制数字</div>
+    <input type="number" id="2number" value="" />
+    <button onclick="math()">确定</button>
+    <div>它的十进制数字是: <span id="10number" value="a"></span></div>
+    <script>
+      function math() {
+        //获取输入的数据赋给变量a
+        let a = document.getElementById("2number").value;
+        //将变量a的值分割成数组
+        let arr = a.split("");
+        //判断数组中是否包含非数字
+        arr.forEach(function (x) {
+          let y = Number(x);
+          let z = String(y);
+          if (z == "NaN") {
+            throw "类型错了";
+          }
+        });
+        //判断数字是否为0或1
+        arr.forEach(function (x) {
+          if (x > 1) {
+            throw "大小错了";
+          }
+        });
+        //判断数组长度是否大于8
+        if (arr.length>8){
+          throw "长度错了";
+        }
+        //计算结果
+        //二进制转十进制方法:从右往左依次用二进制数字乘2的n次方
+        let b=arr.length
+        let c=0
+        arr.forEach(function(x){
+          c+=x*Math.pow(2,b-1)
+          b--
+          }
+        )
+        document.getElementById("10number").innerHTML = c;
+        // }
+      }
+    </script>
+  </body>
+</html>
