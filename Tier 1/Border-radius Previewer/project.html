@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+  <body>
+    <!-- 设置四个输入框用来接收键入的数据 -->
+    <span
+      >修改左上边框半径<input onchange="change()" type="number" id="top-left"
+    /></span>
+    <span
+      >修改右上边框半径<input onchange="change()" type="number" id="top-right"
+    /></span>
+    <span
+      >修改左下边框半径<input
+        onchange="change()"
+        type="number"
+        id="bottom-left"
+    /></span>
+    <span
+      >修改右下边框半径<input
+        onchange="change()"
+        type="number"
+        id="bottom-right"
+    /></span>
+    <!-- 要修改边框的对象 -->
+    <div class="div" id="div"></div>
+    <!-- 获取此时的css -->
+    <button></button>
+
+    <script>
+      function change() {
+        var div = document.getElementById("div");
+        var a = document.getElementById("top-left").value;
+        var b = document.getElementById("top-right").value;
+        var c = document.getElementById("bottom-left").value;
+        var d = document.getElementById("bottom-right").value;
+        div.style.setProperty("border-top-left-radius", "" + a + "px");
+        div.style.setProperty("border-top-right-radius", "" + b + "px");
+        div.style.setProperty("border-bottom-left-radius", "" + c + "px");
+        div.style.setProperty("border-bottom-right-radius", "" + d + "px");
+      }
+    </script>
+  </body>
+</html>
